@@ -1,0 +1,6 @@
+{
+    "/api/*": {
+      "target": "https://node-fake-api-server.herokuapp.com/",
+      "secure": false
+    }
+  }

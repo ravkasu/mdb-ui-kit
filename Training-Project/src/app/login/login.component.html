@@ -1,0 +1,25 @@
+<body>
+    <div >
+      <h2>Login</h2>
+      <form [formGroup]="loginform" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="username">Username:</label>
+          <input type="text" id="username" name="username" formControlName="username" placeholder="eve.holt@reqres.in"  [(ngModel)]="username">
+        </div>
+        <div class="form-group">
+          <label for="password">Password:</label>
+          <input type="password" id="password" formControlName="password" name="password" placeholder="cityslicka" [(ngModel)]="password">
+        </div>
+        <div class="form-group">
+          <button type="submit">Login</button>
+          <!-- <button [disabled]="loginform.invalid" routerLink="/home" type="submit">Login</button> -->
+        </div>
+      </form>
+      eve.holt@reqres.in
+      cityslicka
+
+
+    </div>
+  </body>
+
+
