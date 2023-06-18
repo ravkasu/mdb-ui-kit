@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment.development';
 
 @Injectable({
   providedIn: 'root'
@@ -9,12 +10,12 @@ export class AuthService {
 
   logStatus:boolean=false;
 
-  private url=`https://reqres.in/api/login`;
+  private url=environment.apiUrl;
 
   constructor(private http:HttpClient) { }
 
   getData(): Observable<any> {
-    this.http.get<any>(`${this.url}`).subscribe((data:any)=>{
+    this.http.get<any>('${this.url}/login').subscribe((data:any)=>{
       console.log(data);
     },
     (error: any) => {
@@ -30,7 +31,7 @@ export class AuthService {
       password:password
     };
 
-    this.http.post(this.url,loginData).subscribe((data:any)=>{
+    this.http.post(this.url+'/login',loginData).subscribe((data:any)=>{
       console.log(data.token);
       
       localStorage.setItem('token', data.token);
@@ -54,7 +55,7 @@ export class AuthService {
   }, 100000);
 
 
-   return this.http.post(this.url,loginData); 
+   return this.http.post(this.url+'/login',loginData); 
   }
 
 
